@@ -1,6 +1,16 @@
 import prisma from '../lib/prisma'
 import { signIn, signOut, useSession, getSession } from 'next-auth/client'
-import { Button, Box, Grid, Heading, Text, Image, Flex, Card, Input } from 'theme-ui'
+import {
+  Button,
+  Box,
+  Grid,
+  Heading,
+  Text,
+  Image,
+  Flex,
+  Card,
+  Input,
+} from 'theme-ui'
 import Icon from 'supercons'
 
 export default function Page({ preloadSession }) {
@@ -62,12 +72,20 @@ export default function Page({ preloadSession }) {
               sx={{
                 minHeight: '100vh',
                 px: 4,
-                display: 'flex',
-                alignItems: 'center',
               }}
             >
-              <Box>
-                <Flex sx={{ alignItems: 'center' }}>
+              <Box sx={{ width: '100%' }}>
+                <Flex
+                  sx={{
+                    alignItems: 'center',
+                    height: '48px',
+                    mt: '24px',
+                    bg: 'placeholder',
+                    borderRadius: '999px',
+                    width: 'fit-content',
+                    pr: 3,
+                  }}
+                >
                   <Box
                     sx={{ height: '48px', width: '48px', position: 'relative' }}
                   >
@@ -112,36 +130,68 @@ export default function Page({ preloadSession }) {
                     @sampoder
                   </Heading>
                 </Flex>
-                <Card sx={{ p: [3, 3]}}>
-                  <Input sx={{ bg: 'sunken'}} />
-                  <Button sx={{ width: '100%'}}>Redeem Sticker Code</Button>
-                </Card>
-                <Heading as="h1" sx={{ fontSize: '4em' }}>
-                  <Text sx={{ fontWeight: '600' }}>Build Your</Text> <br />{' '}
-                  Virtual Sticker Wall
-                </Heading>
-                <Box sx={{ my: 3 }}>
-                  <>
-                    Signed in as {JSON.stringify(session.user)} <br />
-                    <button onClick={() => signOut()}>Sign out</button>
-                  </>
+
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    minHeight: 'calc(100vh - 144px)',
+                    width: '100%',
+                  }}
+                >
+                  <Box sx={{ width: '100%' }}>
+                    <Card sx={{ p: [3, 3], my: 3 }}>
+                      Welcome to your dashboard! Here you can redeem sticker
+                      codes and check out all of your redeemed stickers.
+                    </Card>
+                    <Card sx={{ p: [3, 3], my: 3 }}>
+                      <Input sx={{ bg: 'sunken', borderRadius: '6px' }} />
+                      <Button sx={{ width: '100%', mt: 3 }}>
+                        Redeem Sticker Code
+                      </Button>
+                    </Card>
+                    <Card sx={{ p: [3, 3] }}>
+                      <Input
+                        as="div"
+                        sx={{
+                          bg: 'sunken',
+                          borderRadius: '6px',
+                          color: 'grey',
+                        }}
+                      >
+                        https://avatars.githubusercontent.com/u/39828164?v=4
+                      </Input>
+                      <Grid columns="3fr 0.33fr 0.33fr">
+                        <Button sx={{ width: '100%', mt: 3 }}>Copy URL</Button>
+                        <Button sx={{ width: '100%', mt: 3 }}>
+                          <Icon
+                            glyph="twitter-fill"
+                            size={28}
+                            style={{ marginRight: '0px', marginLeft: '-4px' }}
+                          />
+                        </Button>
+                        <Button sx={{ width: '100%', mt: 3 }}>
+                          {' '}
+                          <Icon
+                            glyph="facebook-fill"
+                            size={28}
+                            style={{ marginRight: '0px', marginLeft: '-4px' }}
+                          />
+                        </Button>
+                      </Grid>
+                    </Card>
+                  </Box>
                 </Box>
-                <Button onClick={() => signIn('github')} sx={{ pt: '5px' }}>
-                  <Icon
-                    glyph="github"
-                    size={24}
-                    style={{ marginRight: '0px' }}
-                  />{' '}
-                  <Text
-                    sx={{
-                      display: 'inline-block',
-                      height: '24px',
-                      verticalAlign: 'bottom',
-                    }}
-                  >
-                    Sign in with GitHub
-                  </Text>
-                </Button>
+                <Flex
+                  sx={{
+                    alignItems: 'center',
+                    height: '48px',
+                    mb: '24px',
+                    color: 'grey',
+                  }}
+                >
+                  Built by Sam Poder, open sourced here.
+                </Flex>
               </Box>
             </Box>
           </Grid>
