@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@next-auth/prisma-adapter": "^0.4.4",
+    "@next/mdx": "^10.2.3",
+    "@prisma/client": "^2.24.0",
+    "next": "^10.2.3",
+    "next-auth": "^3.25.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "supercons": "^0.0.1",
+    "theme-ui": "^0.9.1"
+  },
+  "devDependencies": {
+    "prisma": "^2.24.0"
+  }
+}
