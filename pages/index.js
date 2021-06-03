@@ -126,8 +126,8 @@ export default function Page({ preloadSession }) {
                       />
                     </Box>
                   </Box>
-                  <Heading sx={{ fontWeight: '500', ml: '8px' }}>
-                    @sampoder
+                  <Heading sx={{ fontWeight: '500', ml: '8px', color: 'white'}}>
+                    @{session.user.name}
                   </Heading>
                 </Flex>
 
