@@ -12,11 +12,14 @@
     "@next-auth/prisma-adapter": "^0.4.4",
     "@next/mdx": "^10.2.3",
     "@prisma/client": "^2.24.0",
+    "lodash": "^4.17.21",
     "next": "^10.2.3",
     "next-auth": "^3.25.0",
     "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
     "supercons": "^0.0.1",
+    "swr": "^0.5.6",
     "theme-ui": "^0.9.1"
   },
   "devDependencies": {

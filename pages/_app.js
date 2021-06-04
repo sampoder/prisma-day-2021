@@ -10,7 +10,6 @@ const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
       <Meta />
-      <ColorSwitcher />
       <Component {...pageProps} />
     </ThemeProvider>
   )

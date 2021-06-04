@@ -55,7 +55,7 @@ model Stickers {
   approved       Boolean
   imageurl       String        @db.VarChar(255)
   infourl        String?       @db.VarChar(255)
-  submitteremail String        @unique @db.VarChar(255)
+  submitteremail String        @db.VarChar(255)
   id             Int           @id @default(autoincrement())
   Redemptions    Redemptions[]
 }
