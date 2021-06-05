@@ -10,6 +10,7 @@ import {
   Flex,
   Card,
   Input,
+  Spinner,
   Link as A,
 } from 'theme-ui'
 import Icon from 'supercons'
@@ -28,7 +29,20 @@ function getRandomNum(min, max) {
 export default function Page({ preloadSession, initalRedemptions, username }) {
   const router = useRouter()
   if (router.isFallback) {
-    return <div>Loading...</div>
+    return (
+      <Flex
+        sx={{
+          minHeight: '100vh',
+          alignItems: 'center',
+          justifyItems: 'center',
+          justifyItems: 'center',
+          width: '100vw',
+          textAlign: 'center'
+        }}
+      >
+        <Spinner sx={{ margin: 'auto'}} />
+      </Flex>
+    )
   }
   const fetcher = (...args) => fetch(...args).then(res => res.json())
   const { data, error } = useSWR(`/api/${username}`, fetcher, {
@@ -87,7 +101,7 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
               width="64px"
               className="pfp"
             />
-            <Box sx={{ ml: 3}}>
+            <Box sx={{ ml: 3 }}>
               <Heading sx={{ fontWeight: 800 }}>@{username}</Heading>
               <Box>{redemptions.length} Stickers Redeemed</Box>
             </Box>
