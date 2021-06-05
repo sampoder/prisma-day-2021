@@ -34,7 +34,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
     return (
       <>
         <Meta />
-        <Grid columns={2} sx={{ minHeight: '100vh' }}>
+        <Grid columns={[1, 2]} gap={0} sx={{ minHeight: '100vh' }}>
           <Box
             bg="sunken"
             sx={{
@@ -69,6 +69,14 @@ export default function Page({ preloadSession, initalRedemptions }) {
               </Button>
             </Box>
           </Box>
+          <Box
+            sx={{
+              backgroundImage:
+                'linear-gradient(122.44deg, rgba(72, 134, 227, 0.49) 14.35%, rgba(72, 134, 227, 0.78) 78.33%), url(https://cloud-ce9n1eckg-hack-club-bot.vercel.app/0whatsapp_image_2021-06-05_at_12.24.10.jpeg)',
+              backgroundSize: 'cover',
+              display: ['none', 'block']
+            }}
+          ></Box>
         </Grid>
       </>
     )
