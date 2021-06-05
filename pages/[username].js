@@ -55,7 +55,7 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
       <Meta
         title={`@${username}`}
         image={`https://github.com/${username}.png`}
-        twitter_type={`default`}
+        twitter_type={`summary`}
       />
       <Grid
         columns={[6, 8]}
