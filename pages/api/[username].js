@@ -21,13 +21,12 @@ export async function getRedemptions(username) {
         distinct: ['stickerId'],
       },
     },
-    
   })
-  allRedemptions = allRedemptions.map(x => ({
+  allRedemptions = allRedemptions[0].Redemptions.map(x => ({
     number: getRandomNum(-30, 30),
     ...x.Stickers,
   }))
-  return(allRedemptions)
+  return allRedemptions
 }
 
 export default async function RedeemCodeReq(req, res) {
