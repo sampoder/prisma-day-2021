@@ -263,7 +263,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
                   }}
                 >
                   <p style={{ width: '100%' }}>
-                    Built by Sam Poder for Prisma Day 2021, open sourced here.
+                    Built by <A href="https://sampoder.com">Sam Poder</A> for <A href="https://www.prisma.io/day">Prisma Day 2021</A>, open sourced <A href="https://github.com/sampoder/prisma-nextjs">here</A>.
                   </p>
                 </Flex>
               </Box>
