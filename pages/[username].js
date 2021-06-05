@@ -36,44 +36,55 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
 
   return (
     <>
-      <>
-        <Grid
-          columns={[1, 2, 2]}
-          sx={{ maxHeight: [null, '100vh'], overflowY: 'scroll' }}
-        >
-          {' '}
-          <Grid
-            columns={[3, 4]}
-            p={4}
-            gap={4}
-            sx={{
-              gridTemplateRows: 'max-content',
-              maxHeight: '100vh',
-              minHeight: '50vh',
-              overflowY: 'scroll',
-            }}
-          >
-            {redemptions.map((x, index) => (
-              <A
-                href={x.infourl}
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <Image
-                  src={x.imageurl}
-                  sx={{
-                    transition:
-                      'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-                    transform: `rotate(${initalRedemptions[index].number}deg)`,
-                    ':focus,:hover': {
-                      transform: 'scale(1.0625)',
-                    },
-                  }}
-                />
-              </A>
-            ))}
-          </Grid>
-        </Grid>
-      </>
+      <Grid
+        columns={[6, 8]}
+        p={4}
+        gap={4}
+        sx={{
+          gridTemplateRows: 'max-content',
+          maxHeight: '100vh',
+          minHeight: '50vh',
+          overflowY: 'scroll',
+        }}
+      >
+        {redemptions.map((x, index) => (
+          <A href={x.infourl} sx={{ display: 'flex', alignItems: 'center' }}>
+            <Image
+              src={x.imageurl}
+              sx={{
+                transition:
+                  'transform .125s ease-in-out, box-shadow .125s ease-in-out',
+                transform: `rotate(${initalRedemptions[index].number}deg)`,
+                ':focus,:hover': {
+                  transform: 'scale(1.0625)',
+                },
+              }}
+            />
+          </A>
+        ))}
+      </Grid>
+      <Box
+        sx={{
+          position: 'fixed',
+          bottom: 10,
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <Box bg="sunken" p={3} sx={{ borderRadius: 9 }}>
+          <Flex sx={{ alignItems: 'center'}}>
+            <Image
+              src={`https://github.com/${username}.png`}
+              sx={{ borderRadius: 9, height: '64px', mr: 3 }}
+            />
+            <Box>
+              <Heading sx={{ fontWeight: 800 }}>@{username}</Heading>
+              <Box>{redemptions.length} Stickers Redeemed</Box>
+            </Box>
+          </Flex>
+        </Box>
+      </Box>
     </>
   )
 }
@@ -108,6 +119,12 @@ export async function getStaticPaths(context) {
 export async function getStaticProps({ params }) {
   const { getRedemptions } = require('./api/[username]')
   let initalRedemptions = await getRedemptions(params.username)
-  initalRedemptions = initalRedemptions.map(x => ({number: getRandomNum(-30, 30), ...x}))
-  return { props: { initalRedemptions, username: params.username }, revalidate: 30 }
+  initalRedemptions = initalRedemptions.map(x => ({
+    number: getRandomNum(-30, 30),
+    ...x,
+  }))
+  return {
+    props: { initalRedemptions, username: params.username },
+    revalidate: 30,
+  }
 }
