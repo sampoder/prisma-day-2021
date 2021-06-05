@@ -1,6 +1,10 @@
 import prisma from '../../lib/prisma'
 import { getSession } from 'next-auth/client'
 
+function getRandomNum(min, max) {
+  return Math.random() * (max - min) + min
+}
+
 export async function getRedemptions(username) {
   let allRedemptions = await prisma.user.findMany({
     where: {
