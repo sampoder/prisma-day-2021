@@ -19,6 +19,7 @@ import { useState } from 'react'
 import useSWR, { mutate } from 'swr'
 import { useRouter } from 'next/router'
 import Meta from '../components/meta'
+import NextImage from 'next/image'
 
 function getRandomNum(min, max) {
   return Math.random() * (max - min) + min
@@ -80,17 +81,27 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
       >
         <Box bg="sunken" p={3} sx={{ borderRadius: 9 }}>
           <Flex sx={{ alignItems: 'center' }}>
-            <Image
+            <NextImage
               src={`https://github.com/${username}.png`}
-              sx={{ borderRadius: 9, height: '64px', mr: 3 }}
+              height="64px"
+              width="64px"
+              className="pfp"
             />
-            <Box>
+            <Box sx={{ ml: 3}}>
               <Heading sx={{ fontWeight: 800 }}>@{username}</Heading>
               <Box>{redemptions.length} Stickers Redeemed</Box>
             </Box>
           </Flex>
         </Box>
       </Box>
+      <style>
+        {`
+        .pfp{
+          border-radius: 9px;
+        }
+        
+        `}
+      </style>
     </>
   )
 }
@@ -118,7 +129,6 @@ export async function getStaticPaths(context) {
         }
       : null,
   )
-  console.log({ paths, fallback: true })
   return { paths, fallback: true }
 }
 
