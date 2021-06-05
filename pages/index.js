@@ -74,7 +74,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
               backgroundImage:
                 'linear-gradient(122.44deg, rgba(72, 134, 227, 0.49) 14.35%, rgba(72, 134, 227, 0.78) 78.33%), url(https://cloud-ce9n1eckg-hack-club-bot.vercel.app/0whatsapp_image_2021-06-05_at_12.24.10.jpeg)',
               backgroundSize: 'cover',
-              display: ['none', 'block']
+              display: ['none', 'block'],
             }}
           ></Box>
         </Grid>
@@ -98,6 +98,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
         alert(`Error: ${res.error}`)
       }
       await sleep(2000)
+      setCode('')
       setStatus('no-entry')
     } else {
       alert('Please fill out all fields.')
@@ -211,10 +212,23 @@ export default function Page({ preloadSession, initalRedemptions }) {
                         placeholder="4 to 6 Alphanumeric Code"
                       />
                       <Button
-                        sx={{ width: '100%', mt: 3 }}
+                        sx={{
+                          width: '100%',
+                          mt: 3,
+                          bg:
+                            status == 'no-entry'
+                              ? 'blue'
+                              : status == 'success'
+                              ? 'green'
+                              : 'orange',
+                        }}
                         onClick={() => submit()}
                       >
-                        Redeem Sticker Code
+                        {status == 'no-entry'
+                          ? 'Redeem Sticker Code'
+                          : status == 'success'
+                          ? 'Success'
+                          : 'Loading'}
                       </Button>
                     </Card>
                     <Card sx={{ p: [3, 3] }}>
