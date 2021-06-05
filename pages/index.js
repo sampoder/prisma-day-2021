@@ -209,7 +209,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
                         sx={{ bg: 'sunken', borderRadius: '6px' }}
                         onInput={e => setCode(e.target.value)}
                         value={code}
-                        placeholder="4 to 6 Alphanumeric Code"
+                        placeholder="Alphanumeric Code (case sensitive)"
                       />
                       <Button
                         sx={{
