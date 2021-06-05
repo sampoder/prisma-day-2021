@@ -318,7 +318,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
                     sx={{
                       transition:
                         'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-                      transform: `rotate(${initalRedemptions[index].number}deg)`,
+                      transform: `rotate(${x.number}deg)`,
                       ':focus,:hover': {
                         transform: 'scale(1.0625)',
                       },

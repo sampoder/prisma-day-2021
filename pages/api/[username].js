@@ -19,7 +19,10 @@ export async function getRedemptions(username) {
     },
     
   })
-  allRedemptions = allRedemptions[0].Redemptions.map(x => x.Stickers)
+  allRedemptions = allRedemptions.map(x => ({
+    number: getRandomNum(-30, 30),
+    ...x.Stickers,
+  }))
   return(allRedemptions)
 }
 
