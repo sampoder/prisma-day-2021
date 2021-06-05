@@ -5,12 +5,13 @@ const makeTitle = (title, name) =>
   title === name ? title : `${title} – ${name}`
 
 const Meta = ({
-  title = 'Theme Starter', // page title
-  name = 'Theme Starter', // site name
-  description = 'This website was bootstrapped with @lachlanjc’s Next.js Theme Starter.', // page description
-  image = '', // social card image URL
-  url = 'https://next-theme-starter.vercel.app',
+  title = 'Virtual Stickerwall', // page title
+  name = 'Virtual Stickerwall', // site name
+  description = 'Build a virtual sticker wall from hackathons and conferences you attend.', // page description
+  image = 'https://cloud-e40xxir4e-hack-club-bot.vercel.app/0facebook_post_-_109.png', // social card image URL
+  url = 'https://stickerwall.vercel.app',
   children,
+  twitter_type = 'summary_large_image'
 }) => (
   <Head>
     <meta key="og_locale" property="og:locale" content="en_US" />
@@ -33,10 +34,10 @@ const Meta = ({
     {image && (
       <>
         <meta key="og_img" property="og:image" content={image} />
-        <meta key="tw_card" name="twitter:card" content="summary_large_image" />
         <meta key="tw_img" name="twitter:image" content={image} />
       </>
     )}
+    <meta key="tw_card" name="twitter:card" content={twitter_type} />
     <meta key="theme_color" name="theme-color" content={theme.colors.primary} />
     <meta
       key="tile_color"

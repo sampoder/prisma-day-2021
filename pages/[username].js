@@ -18,6 +18,7 @@ import ColourSwitcher from '../components/color-switcher'
 import { useState } from 'react'
 import useSWR, { mutate } from 'swr'
 import { useRouter } from 'next/router'
+import Meta from '../components/meta'
 
 function getRandomNum(min, max) {
   return Math.random() * (max - min) + min
@@ -36,6 +37,11 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
 
   return (
     <>
+      <Meta
+        title={`@${username}`}
+        image={`https://github.com/${username}.png`}
+        twitter_type={`default`}
+      />
       <Grid
         columns={[6, 8]}
         p={4}
@@ -73,7 +79,7 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
         }}
       >
         <Box bg="sunken" p={3} sx={{ borderRadius: 9 }}>
-          <Flex sx={{ alignItems: 'center'}}>
+          <Flex sx={{ alignItems: 'center' }}>
             <Image
               src={`https://github.com/${username}.png`}
               sx={{ borderRadius: 9, height: '64px', mr: 3 }}

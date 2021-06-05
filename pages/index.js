@@ -15,11 +15,12 @@ import {
 import Icon from 'supercons'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ColourSwitcher from '../components/color-switcher'
+import Meta from '../components/meta'
 import { useState } from 'react'
 import useSWR, { mutate } from 'swr'
 
 function getRandomNum(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.random() * (max - min) + min
 }
 
 function sleep(ms) {
@@ -32,6 +33,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
   if (!session) {
     return (
       <>
+        <Meta />
         <Grid columns={2} sx={{ minHeight: '100vh' }}>
           <Box
             bg="sunken"
@@ -97,6 +99,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
     <>
       {session && (
         <>
+          <Meta />
           <Grid
             columns={[1, 2, 2]}
             sx={{ maxHeight: [null, '100vh'], overflowY: 'scroll' }}
@@ -263,7 +266,11 @@ export default function Page({ preloadSession, initalRedemptions }) {
                   }}
                 >
                   <p style={{ width: '100%' }}>
-                    Built by <A href="https://sampoder.com">Sam Poder</A> for <A href="https://www.prisma.io/day">Prisma Day 2021</A>, open sourced <A href="https://github.com/sampoder/prisma-nextjs">here</A>.
+                    Built by <A href="https://sampoder.com">Sam Poder</A> for{' '}
+                    <A href="https://www.prisma.io/day">Prisma Day 2021</A>,
+                    open sourced{' '}
+                    <A href="https://github.com/sampoder/prisma-nextjs">here</A>
+                    .
                   </p>
                 </Flex>
               </Box>
@@ -280,13 +287,16 @@ export default function Page({ preloadSession, initalRedemptions }) {
               }}
             >
               {redemptions.map((x, index) => (
-                <A href={x.infourl} sx={{ display: 'flex', alignItems: 'center'}}>
+                <A
+                  href={x.infourl}
+                  sx={{ display: 'flex', alignItems: 'center' }}
+                >
                   <Image
                     src={x.imageurl}
                     sx={{
                       transition:
                         'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-                        transform: `rotate(${initalRedemptions[index].number}deg)`,
+                      transform: `rotate(${initalRedemptions[index].number}deg)`,
                       ':focus,:hover': {
                         transform: 'scale(1.0625)',
                       },
@@ -326,7 +336,10 @@ export async function getServerSideProps(context) {
       },
       distinct: ['stickerId'],
     })
-    allRedemptions = allRedemptions.map(x => ({number: getRandomNum(-30, 30), ...x.Stickers}))
+    allRedemptions = allRedemptions.map(x => ({
+      number: getRandomNum(-30, 30),
+      ...x.Stickers,
+    }))
     return {
       props: { initalRedemptions: allRedemptions, preloadSession: session },
     }
