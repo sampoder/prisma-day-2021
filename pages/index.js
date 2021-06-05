@@ -117,7 +117,9 @@ export default function Page({ preloadSession, initalRedemptions }) {
               bg="sunken"
               sx={{
                 maxHeight: ['50vh', '100vh'],
-                overflow: 'scroll',
+                minHeight: '100vh',
+                overflowY: 'scroll',
+                overflowX: 'none',
                 px: 4,
                 gridRow: [2, 1],
                 boxShadow: ['elevated', 'none'],
@@ -282,7 +284,6 @@ export default function Page({ preloadSession, initalRedemptions }) {
                   sx={{
                     alignItems: 'center',
                     mt: 2,
-                    mb: '24px',
                     color: 'grey',
                     textAlign: ['center', 'left'],
                   }}
