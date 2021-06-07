@@ -82,7 +82,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
     )
   }
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, error } = useSWR(`/api/${session.user.name}`, fetcher, {
+  const { data, error } = useSWR(`/api/users/${session.user.name}`, fetcher, {
     initialData: initalRedemptions,
   })
   const [status, setStatus] = useState('no-entry')
