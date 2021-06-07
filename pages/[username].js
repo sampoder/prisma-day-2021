@@ -1,5 +1,3 @@
-import prisma from '../lib/prisma'
-import { signIn, signOut, useSession, getSession } from 'next-auth/client'
 import {
   Button,
   Box,
@@ -13,11 +11,7 @@ import {
   Spinner,
   Link as A,
 } from 'theme-ui'
-import Icon from 'supercons'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-import ColourSwitcher from '../components/color-switcher'
-import { useState } from 'react'
-import useSWR, { mutate } from 'swr'
+import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import Meta from '../components/meta'
 import NextImage from 'next/image'
@@ -37,10 +31,10 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
           justifyItems: 'center',
           justifyItems: 'center',
           width: '100vw',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
-        <Spinner sx={{ margin: 'auto'}} />
+        <Spinner sx={{ margin: 'auto' }} />
       </Flex>
     )
   }
@@ -120,29 +114,12 @@ export default function Page({ preloadSession, initalRedemptions, username }) {
   )
 }
 
-export async function getStaticPaths(context) {
-  const { orderBy } = require('lodash')
-  let users = await prisma.user.findMany({
-    select: {
-      id: true,
-      name: true,
-      Redemptions: {
-        select: { id: true },
-      },
-    },
-  })
-  users = users.map((x, index) => ({
-    length: x.Redemptions.length,
-    ...x,
+export async function getStaticPaths() {
+  const { getUsers } = require('./api/users')
+  let users = await getUsers(300)
+  let paths = users.map(user => ({
+    params: { username: user.name },
   }))
-  users = orderBy(users, 'length', 'desc')
-  let paths = users.map((x, index) =>
-    index < 300
-      ? {
-          params: { username: x.name },
-        }
-      : null,
-  )
   return { paths, fallback: true }
 }
 
