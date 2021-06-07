@@ -1,4 +1,4 @@
-import prisma from '../../lib/prisma'
+import prisma from '../../../lib/prisma'
 import { getSession } from 'next-auth/client'
 
 function getRandomNum(min, max) {
