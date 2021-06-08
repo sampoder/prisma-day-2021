@@ -23,6 +23,6 @@
     "theme-ui": "^0.9.1"
   },
   "devDependencies": {
-    "prisma": "^2.24.0"
+    "prisma": "^2.24.1"
   }
 }
