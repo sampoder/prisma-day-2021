@@ -11,7 +11,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@next-auth/prisma-adapter": "^0.4.4",
     "@next/mdx": "^10.2.3",
-    "@prisma/client": "^2.24.0",
+    "@prisma/client": "^2.24.1",
     "lodash": "^4.17.21",
     "next": "^10.2.3",
     "next-auth": "^3.25.0",
