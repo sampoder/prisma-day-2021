@@ -1,0 +1,1 @@
+This is the demo application. Credits to @lachlanjc for their great theme starter!
