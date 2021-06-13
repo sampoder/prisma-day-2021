@@ -28,4 +28,4 @@ export async function getStaticProps({ params }) {
 }
 ```
 
-<img src="https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png" width="60" />
+<img src="https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png" width="200" />
