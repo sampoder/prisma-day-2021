@@ -27,3 +27,5 @@ export async function getStaticProps({ params }) {
   }
 }
 ```
+
+![Prisma Day 21 Icon](https://www.prisma.io/images/day2021/logo-big.svg)
