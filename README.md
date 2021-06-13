@@ -28,4 +28,4 @@ export async function getStaticProps({ params }) {
 }
 ```
 
-![Prisma Day 21 Icon](https://www.prisma.io/images/day2021/logo-big.svg)
+![Prisma Day 21 Icon](https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png)
