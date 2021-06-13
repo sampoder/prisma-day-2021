@@ -28,4 +28,4 @@ export async function getStaticProps({ params }) {
 }
 ```
 
-![Prisma Day 21 Icon](https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png)
+<img src="https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png" width="60" />
