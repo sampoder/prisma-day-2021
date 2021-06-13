@@ -1,3 +1,5 @@
+<img src="https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png" width="200" />
+
 # Prisma, Next.js & ISR: Building Speedy Web Apps
 
 > Static Site Generation & Server Side Rendering each have an extensive list of benefits, what if we could combine them? Meet Incremental Static Regeneration and Next.js. In this talk we'll go over what ISR is, the benefits of ISR and how we can use Next.js' ISR with Prisma as well as why we should use it with Prisma. Best of all, we'll be exploring a practical application of Next.js, ISR & Prisma. After this lightning talk, your web pages will be faster than the speed of light.
@@ -27,5 +29,4 @@ export async function getStaticProps({ params }) {
   }
 }
 ```
-
-<img src="https://cloud-mealgtc1o-hack-club-bot.vercel.app/0vector4.png" width="200" />
+More information is in the [slides](https://github.com/sampoder/prisma-nextjs/tree/main/slides).
