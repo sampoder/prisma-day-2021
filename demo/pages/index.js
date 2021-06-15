@@ -93,7 +93,7 @@ export default function Page({ preloadSession, initalRedemptions }) {
       setStatus('loading')
       let res = await fetch(`api/redeem?code=${code}`).then(r => r.json())
       setStatus('success')
-      mutate(`/api/${session.user.name}`)
+      mutate(`/api/users/${session.user.name}`)
       if (res.error) {
         alert(`Error: ${res.error}`)
       }
